@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ${workspaceFolder}/server.js",
-    "firebase": "firebase deploy --only functions"
+    "deploy": "firebase deploy --only functions"
   },
   "engines": {
     "node": "10"

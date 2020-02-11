@@ -41,6 +41,6 @@ jobs:
 
       - run:
           name: Firebase Deploy
-          command: cd functions && npm run firebase
-          # command: cd functions && firebase deploy --token "$FIREBASE_TOKEN" --only functions
+          # command: cd functions && npm run deploy
+          command: cd functions && ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only functions
           # command: firebase deploy --token "$FIREBASE_TOKEN" --only functions
