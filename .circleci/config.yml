@@ -27,16 +27,16 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: Install Dependencies
-          command: npm install
-
-      - run:
           name: Move Directory
           command: cd functions
 
       - run:
           name: Check Directory
           command: ls
+
+      - run:
+          name: Install Dependencies
+          command: npm install
 
       - save_cache:
           paths:
