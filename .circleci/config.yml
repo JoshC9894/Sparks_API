@@ -19,14 +19,6 @@ jobs:
     steps:
       - checkout
 
-      # - run:
-      #     name: Move Directory
-      #     command: cd functions
-
-      # - run:
-      #     name: Check Directory
-      #     command: ls
-
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -38,10 +30,18 @@ jobs:
           name: Install Dependencies
           command: npm install
 
+      - run:
+          name: Move Directory
+          command: cd functions
+
+      - run:
+          name: Check Directory
+          command: ls
+
       - save_cache:
           paths:
             - ./node_modules
-          key: v1-dependencies-{{ checksum "./functions/package-lock.json" }}
+          key: v1-dependencies-{{ checksum "./package-lock.json" }}
 
       - run:
          name: Build
