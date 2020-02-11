@@ -37,7 +37,7 @@ jobs:
 
       - run:
          name: Build
-         command: npm get prefix
+         command: cd functions && ls
 
       - run:
           name: Firebase Deploy
