@@ -20,8 +20,8 @@ jobs:
       - checkout
 
       - run:
-        name: Move Directory
-        command: cd ./functions
+          name: Move Directory
+          command: cd ./functions
 
       # Download and cache dependencies
       - restore_cache:
