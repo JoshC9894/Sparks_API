@@ -27,27 +27,19 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: Move Directory
-          command: cd functions
-
-      - run:
-          name: Check Directory
-          command: ls
-
-      - run:
           name: Install Dependencies
-          command: npm install
+          command: cd functions && npm install
 
       - save_cache:
           paths:
             - ./node_modules
-          key: v1-dependencies-{{ checksum "./package-lock.json" }}
+          key: v1-dependencies-{{ checksum "./functions/package-lock.json" }}
 
-      - run:
-         name: Build
-         command: npm build
+      # - run:
+      #    name: Build
+      #    command: npm build
 
       - run:
           name: Firebase Deploy
-          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only functions
+          command: cd functions && firebase deploy --token "$FIREBASE_TOKEN" --only functions
           # command: firebase deploy --token "$FIREBASE_TOKEN" --only functions
