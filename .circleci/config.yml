@@ -19,6 +19,10 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: Move Directory
+          command: cd functions
+      
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -26,7 +30,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: 
+      - run:
           name: Install Dependencies
           command: npm install
 
@@ -34,14 +38,6 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run:
-          name: Move Directory
-          command: cd functions
-      
-      - run:
-          name: Install Dependencies
-          command: npm install
       
       - run:
           name: Firebase Deploy
