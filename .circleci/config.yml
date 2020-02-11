@@ -37,4 +37,4 @@ jobs:
 
       - run:
           name: Firebase Deploy
-          command: ../lib/node_modules/firebase-tools/lib/bin/firebase deploy --token "$FIREBASE_TOKEN" --only functions
+          command: firebase deploy --token "$FIREBASE_TOKEN" --only functions
