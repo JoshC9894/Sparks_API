@@ -35,12 +35,12 @@ jobs:
       #       - ./node_modules
       #     key: v1-dependencies-{{ checksum "./functions/package-lock.json" }}
 
-      - run:
-         name: Build
-         command: cd functions && ls
+      # - run:
+      #    name: Build
+      #    command: cd functions && npm run firebase
 
       - run:
           name: Firebase Deploy
-          command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+          command: cd functions && npm run firebase
           # command: cd functions && firebase deploy --token "$FIREBASE_TOKEN" --only functions
           # command: firebase deploy --token "$FIREBASE_TOKEN" --only functions
