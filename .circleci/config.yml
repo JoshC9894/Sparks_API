@@ -37,10 +37,10 @@ jobs:
 
       - run:
          name: Build
-         command: cd functions && npm build
+         command: npm get prefix
 
       - run:
           name: Firebase Deploy
-          command: ln -s ./node_modules/.bin/firebase . && \./firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+          command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
           # command: cd functions && firebase deploy --token "$FIREBASE_TOKEN" --only functions
           # command: firebase deploy --token "$FIREBASE_TOKEN" --only functions
