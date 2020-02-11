@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ${workspaceFolder}/server.js"
+    "start": "node ${workspaceFolder}/server.js",
+    "firebase": "firebase deploy --only functions"
+  },
+  "engines": {
+    "node": "10"
   },
   "author": "",
   "license": "ISC",
@@ -14,12 +18,13 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase-admin": "^8.9.2",
+    "firebase-functions": "^3.3.0",
     "fs-extra": "^8.1.0",
     "multer": "^1.4.2",
     "nodemon": "^2.0.2",
     "firebase-tools": "^7.12.1"
   },
   "devDependencies": {
-    "firebase-tools": "^7.12.1"
+    "firebase-functions-test": "^0.1.6"
   }
 }
