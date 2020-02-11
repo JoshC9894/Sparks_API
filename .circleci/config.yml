@@ -19,13 +19,13 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: Move Directory
-          command: cd functions
+      # - run:
+      #     name: Move Directory
+      #     command: cd functions
 
-      - run:
-          name: Check Directory
-          command: ls
+      # - run:
+      #     name: Check Directory
+      #     command: ls
 
       # Download and cache dependencies
       - restore_cache:
@@ -40,9 +40,14 @@ jobs:
 
       - save_cache:
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
+
+      - run:
+         name: Build
+         command: npm build
 
       - run:
           name: Firebase Deploy
-          command: firebase deploy --token "$FIREBASE_TOKEN" --only functions
+          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only functions
+          # command: firebase deploy --token "$FIREBASE_TOKEN" --only functions
