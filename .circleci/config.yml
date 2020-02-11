@@ -21,7 +21,11 @@ jobs:
 
       - run:
           name: Move Directory
-          command: cd ./functions
+          command: cd functions
+
+      - run:
+          name: Check Directory
+          command: ls
 
       # Download and cache dependencies
       - restore_cache:
