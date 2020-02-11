@@ -14,12 +14,20 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/repo/functions
+    working_directory: ~/repo
 
     steps:
       - checkout:
          path: ~/repo
 
+     - run:
+        name: Move Directory
+        command: cd functions
+
+        - run:
+           name: Log
+           command: ls
+     
       # Download and cache dependencies
       - restore_cache:
           keys:
